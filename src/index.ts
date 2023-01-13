@@ -28,7 +28,6 @@ class GetVariable {
 }
 
 class Func {
-  public callable = true;
   constructor(public body: Expression[], private paramNames: string[]) {}
 
   eval(scope: Scope): Value {
@@ -71,7 +70,8 @@ class If {
     if (this.condition.eval(scope)) {
       return this.trueExpr.eval(scope);
     }
-    // complete hack to make fibonnacci work lol
+    // complete hack to make fibonnacci work without else statements lol
+    // listen, I didn't say this was all perfect
     return 1;
   }
 }
